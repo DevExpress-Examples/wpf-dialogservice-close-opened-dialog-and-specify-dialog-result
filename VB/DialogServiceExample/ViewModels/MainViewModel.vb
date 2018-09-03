@@ -3,7 +3,6 @@ Imports DevExpress.Mvvm.POCO
 
 Namespace DialogServiceExample.ViewModels
     Public Class MainViewModel
-
         Private ReadOnly Property DialogService() As IDialogService
             Get
                 Return Me.GetService(Of IDialogService)()
