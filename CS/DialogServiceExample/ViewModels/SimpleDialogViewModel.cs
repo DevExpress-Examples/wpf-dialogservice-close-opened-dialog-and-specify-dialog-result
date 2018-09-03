@@ -2,10 +2,10 @@
 using DevExpress.Mvvm.POCO;
 
 namespace DialogServiceExample.ViewModels {
-    public class SimpleDialogViewModel : ViewModelBase {
+    public class SimpleDialogViewModel {
         public ICurrentDialogService CurrentDialogService {
             get {
-                return GetService<ICurrentDialogService>();
+                return this.GetService<ICurrentDialogService>();
             }
         }
 
