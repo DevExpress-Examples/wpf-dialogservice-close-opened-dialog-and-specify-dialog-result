@@ -24,9 +24,7 @@ Namespace DialogServiceExample.ViewModels
         End Sub
 
         Public Sub ShowDialog()
-            If DialogService IsNot Nothing Then
-                Result = DialogService.ShowDialog(dialogButtons:=MessageButton.YesNoCancel, title:="Simple Dialog", viewModel:=New SimpleDialogViewModel())
-            End If
+            Result = DialogService.ShowDialog(dialogButtons:=MessageButton.YesNoCancel, title:="Simple Dialog", viewModel:=New SimpleDialogViewModel())
         End Sub
     End Class
 End Namespace
