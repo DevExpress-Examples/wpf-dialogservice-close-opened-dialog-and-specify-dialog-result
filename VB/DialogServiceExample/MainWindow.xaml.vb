@@ -1,9 +1,6 @@
 ﻿Imports DevExpress.Xpf.Core
 
 Namespace DialogServiceExample
-    ''' <summary>
-    ''' Interaction logic for MainWindow.xaml
-    ''' </summary>
     Partial Public Class MainWindow
         Inherits ThemedWindow
 

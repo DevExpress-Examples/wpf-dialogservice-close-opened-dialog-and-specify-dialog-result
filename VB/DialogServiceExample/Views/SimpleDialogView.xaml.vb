@@ -1,9 +1,4 @@
-﻿Imports System.Windows.Controls
-
-Namespace DialogServiceExample.Views
-    ''' <summary>
-    ''' Interaction logic for SimpleDialogView.xaml
-    ''' </summary>
+﻿Namespace DialogServiceExample.Views
     Partial Public Class SimpleDialogView
         Inherits UserControl
 

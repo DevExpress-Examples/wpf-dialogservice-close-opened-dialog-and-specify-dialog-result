@@ -1,23 +1,32 @@
 ﻿Imports DevExpress.Mvvm
-Imports DevExpress.Mvvm.POCO
 
 Namespace DialogServiceExample.ViewModels
     Public Class MainViewModel
-        Private ReadOnly Property DialogService() As IDialogService
+        Inherits ViewModelBase
+
+        Public Property Result() As MessageResult
             Get
-                Return Me.GetService(Of IDialogService)()
+                Return GetProperty(Function() Result)
+            End Get
+            Set(ByVal value As MessageResult)
+                SetProperty(Function() Result, value)
+            End Set
+        End Property
+        Public Property ShowDialogCommand() As ICommand
+        Protected ReadOnly Property DialogService() As IDialogService
+            Get
+                Return GetService(Of IDialogService)()
             End Get
         End Property
-        Public Overridable Property Result() As MessageResult
 
-        Protected Sub New()
+        Public Sub New()
+            ShowDialogCommand = New DelegateCommand(AddressOf ShowDialog)
         End Sub
 
-        Public Shared Function Create() As MainViewModel
-            Return ViewModelSource.Create(Function() New MainViewModel())
-        End Function
         Public Sub ShowDialog()
-            Result = DialogService.ShowDialog(dialogButtons:= MessageButton.YesNoCancel, title:= "Simple Dialog", viewModel:= SimpleDialogViewModel.Create())
+            If DialogService IsNot Nothing Then
+                Result = DialogService.ShowDialog(dialogButtons:=MessageButton.YesNoCancel, title:="Simple Dialog", viewModel:=New SimpleDialogViewModel())
+            End If
         End Sub
     End Class
 End Namespace

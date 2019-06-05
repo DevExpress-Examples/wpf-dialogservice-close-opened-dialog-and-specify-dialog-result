@@ -1,23 +1,21 @@
 ﻿using DevExpress.Mvvm;
-using DevExpress.Mvvm.POCO;
+using System.Windows.Input;
 
 namespace DialogServiceExample.ViewModels {
-    public class SimpleDialogViewModel {
-        public ICurrentDialogService CurrentDialogService {
-            get {
-                return this.GetService<ICurrentDialogService>();
-            }
+    public class SimpleDialogViewModel : ViewModelBase {
+        public MessageResult DialogResult {
+            get { return GetProperty(() => DialogResult); }
+            set { SetProperty(() => DialogResult, value); }
         }
+        public ICommand CloseCommand { get; private set; }
+        protected ICurrentDialogService CurrentDialogService { get { return GetService<ICurrentDialogService>(); } }
 
-        public MessageResult DialogResult { get; set; }
-
-        protected SimpleDialogViewModel() { }
+        public SimpleDialogViewModel() {
+            CloseCommand = new DelegateCommand<MessageResult>(Close);
+        }
 
         public void Close(MessageResult parameter) {
             CurrentDialogService.Close(DialogResult);
-        }
-        public static SimpleDialogViewModel Create() {
-            return ViewModelSource.Create(() => new SimpleDialogViewModel());
         }
     }
 }

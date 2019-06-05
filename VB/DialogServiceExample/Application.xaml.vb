@@ -1,9 +1,4 @@
-﻿Imports System.Windows
-
-Namespace DialogServiceExample
-    ''' <summary>
-    ''' Interaction logic for App.xaml
-    ''' </summary>
+﻿Namespace DialogServiceExample
     Partial Public Class App
         Inherits Application
 

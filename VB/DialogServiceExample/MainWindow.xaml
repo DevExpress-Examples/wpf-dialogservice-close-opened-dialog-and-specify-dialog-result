@@ -1,11 +1,11 @@
-<dx:ThemedWindow
+﻿<dx:ThemedWindow
     x:Class="DialogServiceExample.MainWindow"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     xmlns:Views="clr-namespace:DialogServiceExample.Views"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    Title="MainWindow"
     Width="272.389"
-    Height="85.702"
-    Title="MainWindow">
+    Height="85.702">
 
     <Views:MainView />
 

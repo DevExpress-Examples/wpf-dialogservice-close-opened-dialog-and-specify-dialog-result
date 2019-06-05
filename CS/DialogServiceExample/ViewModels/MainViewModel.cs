@@ -1,22 +1,22 @@
 ﻿using DevExpress.Mvvm;
-using DevExpress.Mvvm.POCO;
+using System.Windows.Input;
 
 namespace DialogServiceExample.ViewModels {
-    public class MainViewModel {
-        IDialogService DialogService {
-            get {
-                return this.GetService<IDialogService>();
-            }
+    public class MainViewModel : ViewModelBase {
+        public MessageResult Result {
+            get { return GetProperty(() => Result); }
+            set { SetProperty(() => Result, value); }
         }
-        public virtual MessageResult Result { get; set; }
+        public ICommand ShowDialogCommand { get; private set; }
+        protected IDialogService DialogService { get { return GetService<IDialogService>(); } }
 
-        protected MainViewModel() { }
-
-        public static MainViewModel Create() {
-            return ViewModelSource.Create(() => new MainViewModel());
+        public MainViewModel() {
+            ShowDialogCommand = new DelegateCommand(ShowDialog);
         }
+
         public void ShowDialog() {
-            Result = DialogService.ShowDialog(dialogButtons: MessageButton.YesNoCancel, title: "Simple Dialog", viewModel: SimpleDialogViewModel.Create());            
+            if (DialogService != null)
+                Result = DialogService.ShowDialog(dialogButtons: MessageButton.YesNoCancel, title: "Simple Dialog", new SimpleDialogViewModel());
         }
     }
 }
