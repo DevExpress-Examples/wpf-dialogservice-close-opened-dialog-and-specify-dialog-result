@@ -1,6 +1,8 @@
-﻿Namespace DialogServiceExample
-    Partial Public Class App
-        Inherits Application
+﻿Imports System.Windows
 
-    End Class
+Namespace DialogServiceExample
+	Partial Public Class App
+		Inherits Application
+
+	End Class
 End Namespace
