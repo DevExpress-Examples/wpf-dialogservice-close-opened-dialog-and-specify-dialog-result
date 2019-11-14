@@ -15,7 +15,7 @@ namespace DialogServiceExample.ViewModels {
         }
 
         public void ShowDialog() {
-            Result = DialogService.ShowDialog(dialogButtons: MessageButton.YesNoCancel, title: "Simple Dialog", new SimpleDialogViewModel());
+            Result = DialogService.ShowDialog(dialogButtons: MessageButton.YesNoCancel, title: "Simple Dialog", viewModel: new SimpleDialogViewModel());
         }
     }
 }
