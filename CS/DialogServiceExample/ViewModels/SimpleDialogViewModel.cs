@@ -1,5 +1,5 @@
 ﻿using DevExpress.Mvvm;
-using System.Windows.Input;
+using DevExpress.Mvvm.DataAnnotations;
 
 namespace DialogServiceExample.ViewModels {
     public class SimpleDialogViewModel : ViewModelBase {
@@ -7,14 +7,10 @@ namespace DialogServiceExample.ViewModels {
             get { return GetProperty(() => DialogResult); }
             set { SetProperty(() => DialogResult, value); }
         }
-        public ICommand CloseCommand { get; private set; }
         protected ICurrentDialogService CurrentDialogService { get { return GetService<ICurrentDialogService>(); } }
 
-        public SimpleDialogViewModel() {
-            CloseCommand = new DelegateCommand<MessageResult>(Close);
-        }
-
-        public void Close(MessageResult parameter) {
+        [Command]
+        public void Close() {
             CurrentDialogService.Close(DialogResult);
         }
     }

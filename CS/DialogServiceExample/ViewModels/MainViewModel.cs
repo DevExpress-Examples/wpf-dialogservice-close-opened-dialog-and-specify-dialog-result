@@ -1,5 +1,5 @@
 ﻿using DevExpress.Mvvm;
-using System.Windows.Input;
+using DevExpress.Mvvm.DataAnnotations;
 
 namespace DialogServiceExample.ViewModels {
     public class MainViewModel : ViewModelBase {
@@ -7,13 +7,9 @@ namespace DialogServiceExample.ViewModels {
             get { return GetProperty(() => Result); }
             set { SetProperty(() => Result, value); }
         }
-        public ICommand ShowDialogCommand { get; private set; }
         protected IDialogService DialogService { get { return GetService<IDialogService>(); } }
 
-        public MainViewModel() {
-            ShowDialogCommand = new DelegateCommand(ShowDialog);
-        }
-
+        [Command]
         public void ShowDialog() {
             Result = DialogService.ShowDialog(dialogButtons: MessageButton.YesNoCancel, title: "Simple Dialog", viewModel: new SimpleDialogViewModel());
         }
