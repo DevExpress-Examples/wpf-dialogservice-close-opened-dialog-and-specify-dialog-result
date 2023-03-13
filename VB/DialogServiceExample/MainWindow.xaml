@@ -5,8 +5,7 @@
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
     Title="MainWindow"
     Width="300"
-    Height="100"
-    SizeToContent="WidthAndHeight">
+    Height="100">
 
     <Views:MainView />
 
