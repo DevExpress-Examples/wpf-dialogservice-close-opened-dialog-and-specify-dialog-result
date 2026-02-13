@@ -17,7 +17,7 @@
 
 This example demonstrates how to work with the currently opened dialog directly from its view model. The <a href="https://docs.devexpress.com/WPF/401018/MVVM-Framework/Services/Predefined-Set/CurrentDialogService">CurrentDialogService</a> component is a handful tool in this case, which allows to close the dialog with one of the available results from within a command inside the view model.
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-dialogservice-close-opened-dialog-and-specify-dialog-result&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-dialogservice-close-opened-dialog-and-specify-dialog-result&~~~was_helpful=no)
 
